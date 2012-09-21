@@ -8,7 +8,7 @@
 
 class Vimeo {
 
-	const API_URL = 'http://vimeo.com/api/';
+	const API_URL = 'http://vimeo.com/api/v2/';
 	public $username;
 
 	function __construct( $user_name )
@@ -26,7 +26,7 @@ class Vimeo {
 
 	public function get_user_clips()
 	{
-		if ( $clips = $this->fetch( $this->username . '/clips' ) ){
+		if ( $clips = $this->fetch( $this->username . '/videos' ) ){
 			return $clips;
 		}
 		return array();
@@ -74,7 +74,7 @@ class Vimeo {
 
 	public function get_all_user_clips()
 	{
-		if ( $clips = $this->fetch( $this->username . '/all_clips' ) ){
+		if ( $clips = $this->fetch( $this->username . '/all_videos' ) ){
 			return $clips;
 		}
 		return array();
@@ -88,6 +88,9 @@ class Vimeo {
 		return array();
 	}
 
+    /**
+     * no longer supported
+     */
 	public function get_contacts_clips()
 	{
 		if ( $clips = $this->fetch( $this->username . '/contacts_clips' ) ){
@@ -96,6 +99,9 @@ class Vimeo {
 		return array();
 	}
 
+    /**
+     * no longer supported
+     */
 	public function get_contacts_likes()
 	{
 		if ( $clips = $this->fetch( $this->username . '/contacts_like' ) ){
@@ -110,7 +116,7 @@ class Vimeo {
 
 	public function get_group_clips( $group )
 	{
-		if ( $clips = $this->fetch( 'group/' . $group . '/clips' ) ){
+		if ( $clips = $this->fetch( 'group/' . $group . '/videos' ) ){
 			return $clips;
 		}
 		return array();
@@ -126,7 +132,7 @@ class Vimeo {
 
 	public function get_channel_clips( $channel )
 	{
-		if ( $clips = $this->fetch( 'channel/' . $channel . '/clips' ) ){
+		if ( $clips = $this->fetch( 'channel/' . $channel . '/videos' ) ){
 			return $clips;
 		}
 		return array();
@@ -142,7 +148,7 @@ class Vimeo {
 
 	public function get_album_clips( $album_id )
 	{
-		if ( $clips = $this->fetch( 'album/' . $album_id . '/clips' ) ){
+		if ( $clips = $this->fetch( 'album/' . $album_id . '/video' ) ){
 			return $clips;
 		}
 		return array();

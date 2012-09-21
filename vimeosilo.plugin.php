@@ -176,13 +176,13 @@ HERE;
 					$props['title'] = $clip['title'];
 					$props['url'] = $clip['url'];
 					$props['thumbnail_url'] = $clip['thumbnail_large'];
-					$props['clip_id'] = $clip['clip_id'];
+					$props['clip_id'] = $clip['id'];
 					$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
 					$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 					$props['filetype'] = 'vimeoclip';
 
 					$results[] = new MediaAsset(
-						self::SILO_NAME . '/user_clips/' . $clip['clip_id'],
+						self::SILO_NAME . '/user_clips/' . $clip['id'],
 						false,
 						$props
 					);
@@ -195,12 +195,12 @@ HERE;
 					$props['title'] = $clip['title'] . ' by <a href="' . $clip['user_url'] . '">' . $clip['user_name'] . '</a>';
 					$props['url'] = $clip['url'];
 					$props['thumbnail_url'] = $clip['thumbnail_large'];
-					$props['clip_id'] = $clip['clip_id'];
+					$props['clip_id'] = $clip['id'];
 					$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
 					$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 					$props['filetype'] = 'vimeoclip';
 					$results[] = new MediaAsset(
-						self::SILO_NAME . '/user_likes/' . $clip['clip_id'],
+						self::SILO_NAME . '/user_likes/' . $clip['id'],
 						false,
 						$props
 					);
@@ -213,12 +213,12 @@ HERE;
 					$props['title'] = $clip['title'] . ' by <a href="' . $clip['user_url'] . '">' . $clip['user_name'] . '</a>';
 					$props['url'] = $clip['url'];
 					$props['thumbnail_url'] = $clip['thumbnail_large'];
-					$props['clip_id'] = $clip['clip_id'];
+					$props['clip_id'] = $clip['id'];
 					$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
 					$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 					$props['filetype'] = 'vimeoclip';
 					$results[] = new MediaAsset(
-						self::SILO_NAME . '/user_subscriptions/' . $clip['clip_id'],
+						self::SILO_NAME . '/user_subscriptions/' . $clip['id'],
 						false,
 						$props
 					);
@@ -231,48 +231,12 @@ HERE;
 					$props['title'] = $clip['title'] . ' by <a href="' . $clip['user_url'] . '">' . $clip['user_name'] . '</a>';
 					$props['url'] = $clip['url'];
 					$props['thumbnail_url'] = $clip['thumbnail_large'];
-					$props['clip_id'] = $clip['clip_id'];
+					$props['clip_id'] = $clip['id'];
 					$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
 					$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 					$props['filetype'] = 'vimeoclip';
 					$results[] = new MediaAsset(
-						self::SILO_NAME . '/user_appears_in/' . $clip['clip_id'],
-						false,
-						$props
-					);
-				}
-				break;
-
-			case 'user_contacts_clips':
-				$clips = $vimeo->get_contacts_clips();
-				foreach( $clips as $clip ) {
-					$props['title'] = $clip['title'] . ' by <a href="' . $clip['user_url'] . '">' . $clip['user_name'] . '</a>';
-					$props['url'] = $clip['url'];
-					$props['thumbnail_url'] = $clip['thumbnail_large'];
-					$props['clip_id'] = $clip['clip_id'];
-					$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
-					$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
-					$props['filetype'] = 'vimeoclip';
-					$results[] = new MediaAsset(
-						self::SILO_NAME . '/user_contacts_clips/' . $clip['clip_id'],
-						false,
-						$props
-					);
-				}
-				break;
-
-			case 'user_contacts_likes':
-				$clips = $vimeo->get_contacts_likes();
-				foreach( $clips as $clip ) {
-					$props['title'] = $clip['title'] . ' by <a href="' . $clip['user_url'] . '">' . $clip['user_name'] . '</a>';
-					$props['url'] = $clip['url'];
-					$props['thumbnail_url'] = $clip['thumbnail_large'];
-					$props['clip_id'] = $clip['clip_id'];
-					$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
-					$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
-					$props['filetype'] = 'vimeoclip';
-					$results[] = new MediaAsset(
-						self::SILO_NAME . '/user_contacts_likes/' . $clip['clip_id'],
+						self::SILO_NAME . '/user_appears_in/' . $clip['id'],
 						false,
 						$props
 					);
@@ -288,12 +252,12 @@ HERE;
 						$props['title'] = $clip['title'] . ' by <a href="' . $clip['user_url'] . '">' . $clip['user_name'] . '</a>';
 						$props['url'] = $clip['url'];
 						$props['thumbnail_url'] = $clip['thumbnail_large'];
-						$props['clip_id'] = $clip['clip_id'];
+						$props['clip_id'] = $clip['id'];
 						$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
 						$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 						$props['filetype'] = 'vimeoclip';
 						$results[] = new MediaAsset(
-							self::SILO_NAME . '/user_groups/' . $selected_group . '/' . $clip['clip_id'],
+							self::SILO_NAME . '/user_groups/' . $selected_group . '/' . $clip['id'],
 							false,
 							$props
 						);
@@ -320,12 +284,12 @@ HERE;
 						$props['title'] = $clip['title'] . ' by <a href="' . $clip['user_url'] . '">' . $clip['user_name'] . '</a>';
 						$props['url'] = $clip['url'];
 						$props['thumbnail_url'] = $clip['thumbnail_large'];
-						$props['clip_id'] = $clip['clip_id'];
+						$props['clip_id'] = $clip['id'];
 						$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
 						$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 						$props['filetype'] = 'vimeoclip';
 						$results[] = new MediaAsset(
-							self::SILO_NAME . '/user_channels/' . $selected_channel . '/' . $clip['clip_id'],
+							self::SILO_NAME . '/user_channels/' . $selected_channel . '/' . $clip['id'],
 							false,
 							$props
 						);
@@ -351,12 +315,12 @@ HERE;
 						$props['title'] = $clip['title'] . ' by <a href="' . $clip['user_url'] . '">' . $clip['user_name'] . '</a>';
 						$props['url'] = $clip['url'];
 						$props['thumbnail_url'] = $clip['thumbnail_large'];
-						$props['clip_id'] = $clip['clip_id'];
+						$props['clip_id'] = $clip['id'];
 						$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
 						$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 						$props['filetype'] = 'vimeoclip';
 						$results[] = new MediaAsset(
-							self::SILO_NAME . '/user_albums/' . $selected_album  . '/' . $clip['clip_id'],
+							self::SILO_NAME . '/user_albums/' . $selected_album  . '/' . $clip['id'],
 							false,
 							$props
 						);
@@ -412,16 +376,6 @@ HERE;
 					true,
 					array( 'title' => 'Appearances  (' . $user_info['total_videos_appears_in'] . ')' )
 				);
-				$results[] = new MediaAsset(
-					self::SILO_NAME . '/user_contacts_clips',
-					true,
-					array( 'title' => 'Contacts Clips' )
-				);
-				$results[] = new MediaAsset(
-					self::SILO_NAME . '/user_contacts_likes',
-					true,
-					array( 'title' => 'Contacts Likes' )
-				);
 				break;
 		}
 		return $results;
@@ -458,18 +412,12 @@ VIMEO;
 	
 	private function get_options()
 	{
-		if ( Cache::has( 'vimeosilo_options' ) ){
-			return Cache::get( 'vimeosilo_options' );
-		}
-		else {
-			$options = array(
-				'username'=>Options::get( 'vimeosilo__username' ),
-				'width'=>Options::get( 'vimeosilo__width' ),
-				'height'=>Options::get( 'vimeosilo__height' )
-			);
-			Cache::set( 'vimeosilo_options', $options );
-			return $options;
-		}
+		$options = array(
+			'username'=>Options::get( 'vimeosilo__username' ),
+			'width'=>Options::get( 'vimeosilo__width' ),
+			'height'=>Options::get( 'vimeosilo__height' )
+		);
+		return $options;
 	}
 }
 ?>
